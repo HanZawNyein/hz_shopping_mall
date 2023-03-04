@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.actions.client" id="home_client_action">
+      <field name="name">Home</field>
+      <field name="tag">hz_shopping_mall.home</field>
+    </record>
+    <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+    <menuitem id="hz_shopping_mall_root" name="Shopping Mall">
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="hz_shopping_mall_category" name="Shopping Mall" action="home_client_action"/>
+    </menuitem>
+</odoo>
