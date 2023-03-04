@@ -4,6 +4,7 @@
 <t t-name="hz_shopping_mall.Home" owl="1">
     <h1>Hello World</h1>
     <Card/>
+    <Counter/>
 </t>
 
 </templates>
