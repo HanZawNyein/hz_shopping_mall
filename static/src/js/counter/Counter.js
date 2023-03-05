@@ -1,13 +1,23 @@
 /** @odoo-module */
 
-const { Component, useState } = owl;
+const { Component, useState, useRef } = owl;
 
 export class Counter extends Component {
-     static template = "hz_shopping_mall.Counter";
+    setup() {
+        this.todos= useState([]);
+    }
 
-     state = useState({ value: 0 });
+    static template = "hz_shopping_mall.Counter";
 
-     increment() {
-         this.state.value++;
-     }
- }
+    inputRef = useRef("input");
+
+    add_todo() {
+        let length = this.todos.length
+        this.todos.push({id:++length, description:this.inputRef.el.value, done: false});
+        this.inputRef.el.value = ''
+    }
+
+    click_checkbox(td){
+        td.done = !td.done
+    };
+}

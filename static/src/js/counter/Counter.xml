@@ -1,6 +1,41 @@
 <templates xml:space="preserve">
     <t t-name="hz_shopping_mall.Counter" owl="1">
-        <p>Counter: <t t-esc="state.value"/></p>
-        <button class="btn btn-primary" t-on-click="increment">Increment</button>
-    </t>
-</templates>
+       <div class="container bg-dark text-white p-5 text-center mt-5">
+<!--        <p>Counter: <t t-esc="state.value"/></p>-->
+           <!--           <button class="btn btn-primary" t-on-click="increment">Increment</button>-->
+           <!--           <hr/>-->
+           <div class="container mt-3">
+               <div class="row">
+                   <input type="text" class="col form-control" t-ref="input"/>
+                   <button class="col-2 btn btn-primary p-2 m-2" t-on-click="add_todo">Add Todo</button>
+               </div>
+               <hr/>
+<!--               <h1 class="text-primary">primary</h1>-->
+<!--               <h1 class="text-success">success</h1>-->
+               <ol class="text-start">
+                   <t t-foreach="todos" t-as="td" t-key="td.id">
+                       <li class="row p-2">
+                            <input type="checkbox" class="col form-control-input p-1"
+                                   t-att-checked="td.done" t-on-click="()=>click_checkbox(td)"/>
+                           <div class="col">
+                              <h5 class="text-white">
+<!--                                   <t t-esc="td.id"/>,-->
+                               <t t-if="td.done">
+                                 <del><t t-esc="td.description"/></del>
+                               </t>
+                               <t t-else="">
+                                    <t t-esc="td.description"/>
+                                </t>
+<!--                               ,-->
+<!--                               <t t-esc="td.done"/>-->
+                              </h5>
+                           </div>
+                           <i class="col fa fa-close p-1"/>
+                        </li>
+                   </t>
+               </ol>
+           </div>
+
+        </div>
+        </t>
+        </templates>
